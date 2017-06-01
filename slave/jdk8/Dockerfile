@@ -22,10 +22,9 @@ RUN curl -o /opt/swarm-client-${SWARM_VERSION}-jar-with-dependencies.jar http://
 
   # Make sure the package repository is up to date.
   && apt-get update \
-  && apt-get install -y git supervisor openssh-client zip unzip wget bzip2 nodejs npm gitstats python-yaml python-jinja2 cassandra-tools rsync  \
+  && apt-get install -y git supervisor openssh-client zip unzip wget bzip2 nodejs npm gitstats python-yaml python-jinja2 cassandra-tools rsync iproute2 \
   && npm install npm -g \
   && npm install -g bower \
-  && rm /usr/local/bin/grunt && npm install -g grunt-cli \
   && ln -s /usr/bin/nodejs /usr/bin/node \
 
   # install gradle 
@@ -37,6 +36,9 @@ RUN curl -o /opt/swarm-client-${SWARM_VERSION}-jar-with-dependencies.jar http://
   
   # adding RSYNC MC
   && apt-get install -y mc rsync \
+
+  #install protoc
+  && apt-get install -y protobuf-compiler=2.6.1* \
 
   # clean all cache to clean space
   && rm -rf /var/lib/apt/lists/* \
