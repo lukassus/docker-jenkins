@@ -1,9 +1,8 @@
 # Ubuntu Docker image with jenkins swarm
 Docker image to run docker compose
 
-# To run docker in docker you must add this volumes:
-- /var/run/docker.sock:/var/run/docker.sock
-- /usr/bin/docker:/usr/bin/docker
+# To run docker in docker you must import volumes from:
+- docker-in-docker
 
 # You need edit (add) this env:
 - JENKINS_USERNAME - username (default empty)
